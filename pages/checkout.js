@@ -1,0 +1,40 @@
+/* pages/checkout.js */
+
+import React, { useContext } from "react";
+import { Row, Col } from "reactstrap";
+import { loadStripe } from "@stripe/stripe-js";
+import { Elements } from "@stripe/react-stripe-js";
+import CheckoutForm from "../components/checkoutForm";
+import AppContext from "../components/context";
+import Cart from "../components/cart";
+
+function Checkout() {
+  // get app context
+  const {isAuthenticated} = useContext(AppContext);
+  // isAuthenticated is passed to the cart component to display order button
+  //const isAuthenticated  = true;
+  
+  // load stripe to inject into elements components
+  const stripePromise = loadStripe(
+    // MIT Prof. William's
+    // "pk_test_51HaLhVGgpfLkdZwmHVQcCOdUzwLWqV7umg9EbicemJqLOcLBPDrPtszruyxf4UzqH0lKwaNj5se3tHldNx92nPjI00Zoi8VgBN"
+    // Insoo's (as of Sep 22, 2021)
+    "pk_test_51JcPQWLfPO9lpfFc5E9RMR9GXOxyRKf8gObQ19IIUji2Mopb3a8vQT40pO4gKfUN0TERNN4etAL9aHeA4uH3tWpJ00HIsCuphu"
+  );
+
+  return (
+    <Row>
+      <Col style={{ paddingRight: 0 }} sm={{ size: 3, order: 1, offset: 2 }}>
+        <h1 style={{ margin: 20 }}>Checkout</h1>
+        <Cart isAuthenticated={isAuthenticated} />
+      </Col>
+      <Col style={{ paddingLeft: 5 }} sm={{ size: 6, order: 2 }}>
+        <Elements stripe={stripePromise}>
+          <CheckoutForm />
+        </Elements>
+      </Col>
+    </Row>
+  );
+  // }
+}
+export default Checkout;
