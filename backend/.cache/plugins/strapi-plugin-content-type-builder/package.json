@@ -2,7 +2,7 @@
   "_args": [
     [
       "strapi-plugin-content-type-builder@3.0.0-beta.14",
-      "D:\\timsolution\\insoo\\GitHub\\BackEndMITxPRO\\wk08\\GraphQLApollo\\backend"
+      "C:\\LocalData\\GitHub\\FinalProjRest\\backend"
     ]
   ],
   "_from": "strapi-plugin-content-type-builder@3.0.0-beta.14",
@@ -26,7 +26,7 @@
   ],
   "_resolved": "https://registry.npmjs.org/strapi-plugin-content-type-builder/-/strapi-plugin-content-type-builder-3.0.0-beta.14.tgz",
   "_spec": "3.0.0-beta.14",
-  "_where": "D:\\timsolution\\insoo\\GitHub\\BackEndMITxPRO\\wk08\\GraphQLApollo\\backend",
+  "_where": "C:\\LocalData\\GitHub\\FinalProjRest\\backend",
   "author": {
     "name": "Strapi team",
     "email": "hi@strapi.io",
