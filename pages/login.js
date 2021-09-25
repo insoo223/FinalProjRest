@@ -90,18 +90,15 @@ function Login(props) {
                         setLoading(true);
                         login(data.identifier, data.password)
                           .then((res) => {
-                            <AppContext.Provider value={{user:true}}>
-                              <Layout>
+                            // <AppContext.Provider value={{user:true}}>
+                            //   <Layout>
                                 
-                              </Layout>
-                            </AppContext.Provider>
+                            //   </Layout>
+                            // </AppContext.Provider>
                             setLoading(false);
                             // set authed User in global context to update header/app state
                             appContext.setUser(res.data.user);
                             
-                            // appContext.user = true;
-                            // appContext.setUser(true);
-                            //setUser(true);
                             alert(`login.js: user ${res.data.user.username}`);
                             // alert(`login.js: state ${JSON.stringify(res.data.user)}`);
                           })
