@@ -103,6 +103,7 @@ const Register = () => {
                             setLoading(false);
                             console.log(`registered user: ${JSON.stringify(res.data)}`)
                             alert(`Success to create a new user: ${JSON.stringify(res.data.user.username)}`);
+                            setUser(res.data.user);
                           })
                           .catch((error) => {
                             console.log(`error in register: ${error}`)

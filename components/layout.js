@@ -67,7 +67,7 @@ const Layout = (props) => {
               </Link>
             ) : (
               <Link href="/login">
-                <a className="nav-link">Sign in</a>
+                <a className="nav-link" onClick={() => {alert(`${user}`)}}>Sign in</a>
               </Link>
             )}
           </NavItem>
