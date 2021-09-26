@@ -98,6 +98,7 @@ function Login(props) {
                             setLoading(false);
                             // set authed User in global context to update header/app state
                             appContext.setUser(res.data.user);
+                            appContext.isAuthenticated = true;
                             
                             alert(`login.js: user ${res.data.user.username}`);
                             // alert(`login.js: state ${JSON.stringify(res.data.user)}`);

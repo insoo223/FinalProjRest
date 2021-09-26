@@ -36,6 +36,7 @@ const Layout = (props) => {
           `}
         </style>
         <Nav className="navbar navbar-dark bg-dark">
+        {/* <Nav className="navbar navbar-dark bg-success"> */}
           <NavItem>
             <Link href="/">
               <a className="navbar-brand">Home</a>
@@ -67,7 +68,8 @@ const Layout = (props) => {
               </Link>
             ) : (
               <Link href="/login">
-                <a className="nav-link" onClick={() => {alert(`${user}`)}}>Sign in</a>
+                {/* <a className="nav-link" onClick={() => {alert(`${user}`)}}>Sign in</a> */}
+                <a className="nav-link" >Sign in</a>
               </Link>
             )}
           </NavItem>

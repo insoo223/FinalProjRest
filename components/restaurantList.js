@@ -28,7 +28,7 @@ function RestaurantList(props) {
         description
         image {
           url
-        }
+        } 
       }
     }
   `;
