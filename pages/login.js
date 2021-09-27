@@ -14,6 +14,7 @@ import {
 } from "reactstrap";
 import { login } from "../components/auth";
 import AppContext from "../components/context";
+import {LoginGoogle, LogoutGoogle} from "./authGoogle"; //added by Insoo on Sep 27, 2021
 
 function Login(props) {
   const [data, updateData] = useState({ identifier: "", password: "" });
@@ -110,6 +111,12 @@ function Login(props) {
                       }}
                     >
                       {loading ? "Loading... " : "Submit"}
+                    </Button>
+                    <Button id="googlelogin" onClick={() => {LoginGoogle()}}>
+                      Google Login
+                    </Button>
+                    <Button id="googlelogout" onClick={() => {LogoutGoogle()}}>
+                      Google Logout
                     </Button>
                   </FormGroup>
                 </fieldset>

@@ -91,6 +91,16 @@ function MyApp(props){
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
           crossOrigin="anonymous"
         />
+        {/* added by Insoo on Sep 27, 2021 */}
+        <link
+          href="https://www.gstatic.com/firebasejs/7.24.0/firebase-app.js"
+          // href="https://www.gstatic.com/firebasejs/9.1.0/firebase-app.js"
+        />
+        {/* added by Insoo on Sep 27, 2021 */}
+        <link
+          href="https://www.gstatic.com/firebasejs/7.24.0/firebase-auth.js"
+          // href="https://www.gstatic.com/firebasejs/9.1.0/firebase-auth.js"
+        />
       </Head>
     
       <Layout>
