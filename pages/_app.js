@@ -7,7 +7,7 @@ import Cookie from "js-cookie"
 
 
 function MyApp(props){
-  var {cart,addItem,removeItem, user, setUser, login} = useContext(AppContext)
+  var {isAuthenticated, cart, addItem, removeItem, user, setUser, login} = useContext(AppContext)
   const [state,setState] = useState({cart:cart});
   const { Component, pageProps } = props;
   
@@ -15,6 +15,7 @@ function MyApp(props){
   setUser = (user) => {
     setState({ user });
   };
+
   addItem = (item) => {
     let { items } = state.cart;
     //check for item already in cart
@@ -83,33 +84,26 @@ function MyApp(props){
   }
 
   return (
-    <AppContext.Provider value={
+    <AppContext.Provider value=
+      {
         {
+          isAuthenticated:false,
           cart: state.cart, 
           addItem: addItem, 
           removeItem: removeItem,
-          isAuthenticated:false,
           user:null,
+          // user:true,
           setUser:()=>{},
           login:false
         }
-      }>
+      }
+    >
       <Head>
         <link
           rel="stylesheet"
           href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
           crossOrigin="anonymous"
-        />
-        {/* added by Insoo on Sep 27, 2021 */}
-        <link
-          // href="https://www.gstatic.com/firebasejs/7.24.0/firebase-app.js"
-          // href="https://www.gstatic.com/firebasejs/9.1.0/firebase-app.js"
-        />
-        {/* added by Insoo on Sep 27, 2021 */}
-        <link
-          // href="https://www.gstatic.com/firebasejs/7.24.0/firebase-auth.js"
-          // href="https://www.gstatic.com/firebasejs/9.1.0/firebase-auth.js"
         />
       </Head>
     
