@@ -21,8 +21,8 @@
     "react-dom": "16.14.0",
     "reactstrap": "^8.6.0"
   },
-  "description": "Exercise05 is full Shopping Cart with Stripe Billing",
+  "description": "Final project of MIT xPRO Back-End Development course. Restaurant & Dish order management with Stripe Billing",
   "main": "index.js",
-  "author": "jrw@mit.edu",
+  "author": "insoo@timmanage.com",
   "license": "MIT"
 }
