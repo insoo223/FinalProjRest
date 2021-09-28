@@ -9,6 +9,7 @@ const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:1337";
 
 //register a new user
 export const registerUser = (username, email, password) => {
+  
   //prevent function from being ran on the server
   if (typeof window === "undefined") {
     return;
