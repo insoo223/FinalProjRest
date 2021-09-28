@@ -14,19 +14,68 @@ import {
 } from "reactstrap";
 import { registerUser } from "../components/auth";
 import AppContext from "../components/context";
-import {SignUpFirebase} from "../components/authGoogle"; //added by Insoo on Sep 27, 2021
+
+//added by Insoo on Sep 27, 2021
+import {SignUpFirebase} from "../components/authGoogle"; 
+
+//added by Insoo on Sep 28, 2021
+//when running in debuggin mode, set it true or false
+const DEBUG = true; 
 
 const Register = () => {
   const [data, setData] = useState({ email: "", username: "", password: "" });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState({});
   const appContext = useContext(AppContext);
+
+  //refactored by Insoo on Sep 28, 2021
+  const RegUserStrapi=() => {
+    
+    // get elements: Try NOT to use DOM directly, use State instead.
+    // const regHeader = document.getElementById("header");
+    // const regUsername = document.getElementById("username");
+    // const regEmail = document.getElementById("email");
+    // const regPassword = document.getElementById("password");
+    // const regStrapi = document.getElementById("btnRegStrapi");
+
+    if (DEBUG) console.log("called RegUserStrapi");
+    //entry validation: added by Insoo on Sep 28, 2021
+    if (data.username == "" || data.email == "" || data.password == "") {
+      if (DEBUG) console.log("inside if condition");
+      alert ('Please, check your entry. Every field should be filled up.')
+      // regHeader.innerHTML = 'Check entry HTML';
+      // regHeader.innerText = 'Check entry Text';
+      setLoading(false);
+      return;
+    }
+    
+    // regStrapi.innerHTML = "Registered on Strapi"
+    setLoading(true);
+
+    registerUser(data.username, data.email, data.password)
+      .then((res) => {
+        // set authed user in global context object
+        appContext.setUser(res.data.user);
+
+        setLoading(false);
+        console.log(`registered user: ${JSON.stringify(res.data)}`)
+        alert(`Success to create a new user registered on Strapi: ${JSON.stringify(res.data.user.username)}`);
+        setUser(res.data.user.username);
+
+      }) //then
+      .catch((error) => {
+        console.log(`error in register: ${error}`)
+        //setError(error.response.data);
+        setLoading(false);
+      }); //catch
+  } //RegUserStrapi
+
   return (
     <Container>
       <Row>
         <Col sm="12" md={{ size: 5, offset: 3 }}>
           <div className="paper">
-            <div className="header">
+            <div id="header" className="header">
               {/* <img src="http://localhost:1337/uploads/5a60a9d26a764e7cba1099d8b157b5e9.png" /> */}
               <img src="https://2a64nz1v15bg2wnfsl3jk3ld-wpengine.netdna-ssl.com/wp-content/uploads/2015/03/logo-mit-png-mit-logo-793.png" width="180" height="90" />
               <h2>Register</h2>
@@ -48,9 +97,12 @@ const Register = () => {
                 })}
               <Form>
                 <fieldset disabled={loading}>
+
+                  {/* ------------ username ------------ */}
                   <FormGroup>
                     <Label>Username:</Label>
                     <Input
+                      id="username"
                       disabled={loading}
                       onChange={(e) =>
                         setData({ ...data, username: e.target.value })
@@ -58,22 +110,27 @@ const Register = () => {
                       value={data.username}
                       type="text"
                       name="username"
-                      style={{ height: 50, fontSize: "1.2em" }}
+                      // style={{ height: 50, fontSize: "1.2em" }}
+                      style={{ height: 30, fontSize: "1em" }}
                     />
                   </FormGroup>
+
+                  {/* ------------ email ------------ */}
                   <FormGroup>
                     <Label>Email:</Label>
                     <Input
+                      id="email"
                       onChange={(e) =>
                         setData({ ...data, email: e.target.value })
                       }
                       value={data.email}
                       type="email"
                       name="email"
-                      id="email"
-                      style={{ height: 50, fontSize: "1.2em" }}
+                      style={{ height: 30, fontSize: "1em" }}
                     />
                   </FormGroup>
+                  
+                  {/* ------------ password ------------ */}
                   <FormGroup style={{ marginBottom: 30 }}>
                     <Label>Password:</Label>
                     <Input
@@ -84,42 +141,36 @@ const Register = () => {
                       value={data.password}
                       type="password"
                       name="password"
-                      style={{ height: 50, fontSize: "1.2em" }}
+                      style={{ height: 30, fontSize: "1em" }}
                     />
                   </FormGroup>
+
+                  {/* ------------ Forgot password & Buttons ------------ */}
                   <FormGroup>
                     <span>
                       <a href="">
                         <small>Forgot Password?</small>
                       </a>
                     </span>
+                    
+                    {/* ------------ Button Reg by Strapi ------------ */}
                     <Button
-                      style={{ float: "right", width: 120 }}
+                      id="btnRegStrapi"
+                      style={{ float: "right", width: 160 }}
                       color="primary"
                       disabled={loading}
-                      onClick={() => {
-                        setLoading(true);
-                        registerUser(data.username, data.email, data.password)
-                          .then((res) => {
-                            // set authed user in global context object
-                            appContext.setUser(res.data.user);
-                            setLoading(false);
-                            console.log(`registered user: ${JSON.stringify(res.data)}`)
-                            alert(`Success to create a new user: ${JSON.stringify(res.data.user.username)}`);
-                            setUser(res.data.user);
-                          })
-                          .catch((error) => {
-                            console.log(`error in register: ${error}`)
-                            //setError(error.response.data);
-                            setLoading(false);
-                          });
-                      }}
+                      onClick={() => RegUserStrapi()}
                     >
-                      {loading ? "Loading.." : "Submit"}
+                      {loading ? "Loading.." : "Register on Strapi"}
                     </Button>
-
-                    <Button id="firesignup" onClick={() => {SignUpFirebase()}}>
-                      Firebase Sign Up
+                    
+                    {/* ------------ Button Reg by Firebase  ------------ */}
+                    <Button id="firesignup" onClick={() => {SignUpFirebase()}}
+                      style={{ float: "right", width: 160 }}
+                      color="warning"
+                      disabled={loading}
+                    >
+                      Register on Firebase
                     </Button>
 
                   </FormGroup>
@@ -162,5 +213,8 @@ const Register = () => {
       </style>
     </Container>
   );
-};
+  
+}; //const Register
+
+
 export default Register;
