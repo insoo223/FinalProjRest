@@ -14,6 +14,7 @@ import {
 } from "reactstrap";
 import { registerUser } from "../components/auth";
 import AppContext from "../components/context";
+import {SignUpFirebase} from "../components/authGoogle"; //added by Insoo on Sep 27, 2021
 
 const Register = () => {
   const [data, setData] = useState({ email: "", username: "", password: "" });
@@ -69,12 +70,14 @@ const Register = () => {
                       value={data.email}
                       type="email"
                       name="email"
+                      id="email"
                       style={{ height: 50, fontSize: "1.2em" }}
                     />
                   </FormGroup>
                   <FormGroup style={{ marginBottom: 30 }}>
                     <Label>Password:</Label>
                     <Input
+                      id="password"
                       onChange={(e) =>
                         setData({ ...data, password: e.target.value })
                       }
@@ -114,6 +117,11 @@ const Register = () => {
                     >
                       {loading ? "Loading.." : "Submit"}
                     </Button>
+
+                    <Button id="firesignup" onClick={() => {SignUpFirebase()}}>
+                      Firebase Sign Up
+                    </Button>
+
                   </FormGroup>
                 </fieldset>
               </Form>

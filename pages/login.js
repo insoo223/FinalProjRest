@@ -14,7 +14,7 @@ import {
 } from "reactstrap";
 import { login } from "../components/auth";
 import AppContext from "../components/context";
-import {LoginGoogle, LogoutGoogle} from "../components/authGoogle"; //added by Insoo on Sep 27, 2021
+import {LoginGoogle, LogoutGoogle, LoginFirebase} from "../components/authGoogle"; //added by Insoo on Sep 27, 2021
 
 function Login(props) {
   const [data, updateData] = useState({ identifier: "", password: "" });
@@ -63,6 +63,7 @@ function Login(props) {
                   <FormGroup>
                     <Label>Email:</Label>
                     <Input
+                      id="email"
                       onChange={(event) => onChange(event)}
                       name="identifier"
                       style={{ height: 50, fontSize: "1.2em" }}
@@ -71,6 +72,7 @@ function Login(props) {
                   <FormGroup style={{ marginBottom: 30 }}>
                     <Label>Password:</Label>
                     <Input
+                      id="password"
                       onChange={(event) => onChange(event)}
                       type="password"
                       name="password"
@@ -112,12 +114,19 @@ function Login(props) {
                     >
                       {loading ? "Loading... " : "Submit"}
                     </Button>
+
                     <Button id="googlelogin" onClick={() => {LoginGoogle()}}>
                       Google Login
                     </Button>
+
                     <Button id="googlelogout" onClick={() => {LogoutGoogle()}}>
                       Google Logout
                     </Button>
+
+                    <Button id="firelogin" onClick={() => {LoginFirebase()}}>
+                      Firebase Login
+                    </Button>
+
                   </FormGroup>
                 </fieldset>
               </Form>

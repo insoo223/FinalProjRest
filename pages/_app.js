@@ -93,12 +93,12 @@ function MyApp(props){
         />
         {/* added by Insoo on Sep 27, 2021 */}
         <link
-          href="https://www.gstatic.com/firebasejs/7.24.0/firebase-app.js"
+          // href="https://www.gstatic.com/firebasejs/7.24.0/firebase-app.js"
           // href="https://www.gstatic.com/firebasejs/9.1.0/firebase-app.js"
         />
         {/* added by Insoo on Sep 27, 2021 */}
         <link
-          href="https://www.gstatic.com/firebasejs/7.24.0/firebase-auth.js"
+          // href="https://www.gstatic.com/firebasejs/7.24.0/firebase-auth.js"
           // href="https://www.gstatic.com/firebasejs/9.1.0/firebase-auth.js"
         />
       </Head>
