@@ -16,18 +16,20 @@ import { registerUser } from "../components/auth";
 import AppContext from "../components/context";
 
 //added by Insoo on Sep 27, 2021
-import {SignUpFirebase} from "../components/authGoogle"; 
+import {RegUserFirebase} from "../components/authGoogle"; 
 
 //added by Insoo on Sep 28, 2021
 //when running in debuggin mode, set it true or false
 const DEBUG = true; 
 
+// -------------------- Register -------------------- 
 const Register = () => {
   const [data, setData] = useState({ email: "", username: "", password: "" });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState({});
   const appContext = useContext(AppContext);
-
+  
+  // -------------------- RegUserStrapi -------------------- 
   //refactored by Insoo on Sep 28, 2021
   const RegUserStrapi=() => {
     
@@ -39,15 +41,14 @@ const Register = () => {
     // const regStrapi = document.getElementById("btnRegStrapi");
 
     if (DEBUG) console.log("called RegUserStrapi");
+
     //entry validation: added by Insoo on Sep 28, 2021
     if (data.username == "" || data.email == "" || data.password == "") {
       if (DEBUG) console.log("inside if condition");
       alert ('Please, check your entry. Every field should be filled up.')
-      // regHeader.innerHTML = 'Check entry HTML';
-      // regHeader.innerText = 'Check entry Text';
       setLoading(false);
       return;
-    }
+    } //if 
     
     // regStrapi.innerHTML = "Registered on Strapi"
     setLoading(true);
@@ -59,7 +60,7 @@ const Register = () => {
 
         setLoading(false);
         console.log(`registered user: ${JSON.stringify(res.data)}`)
-        alert(`Success to create a new user registered on Strapi: ${JSON.stringify(res.data.user.username)}`);
+        alert(`Success to create a new user ${JSON.stringify(res.data.user.username)} registered on Strapi:`);
         setUser(res.data.user.username);
 
       }) //then
@@ -68,17 +69,22 @@ const Register = () => {
         //setError(error.response.data);
         setLoading(false);
       }); //catch
+    
+      setLoading(false);
   } //RegUserStrapi
+  // -------------------- (End) RegUserStrapi -------------------- 
 
+  // -------------------- (return) Register -------------------- 
   return (
     <Container>
       <Row>
-        <Col sm="12" md={{ size: 5, offset: 3 }}>
+        <Col sm="12" md={{ size: 5, offset: 0 }}>
           <div className="paper">
             <div id="header" className="header">
+              {/* // ims src modified by Insoo on Sep 22, 2021 */}
               {/* <img src="http://localhost:1337/uploads/5a60a9d26a764e7cba1099d8b157b5e9.png" /> */}
               <img src="https://2a64nz1v15bg2wnfsl3jk3ld-wpengine.netdna-ssl.com/wp-content/uploads/2015/03/logo-mit-png-mit-logo-793.png" width="180" height="90" />
-              <h2>Register</h2>
+              <h2>Register a new user</h2>
             </div>
             <section className="wrapper">
               {Object.entries(error).length !== 0 &&
@@ -147,30 +153,26 @@ const Register = () => {
 
                   {/* ------------ Forgot password & Buttons ------------ */}
                   <FormGroup>
-                    <span>
-                      <a href="">
-                        <small>Forgot Password?</small>
-                      </a>
-                    </span>
-                    
                     {/* ------------ Button Reg by Strapi ------------ */}
                     <Button
                       id="btnRegStrapi"
-                      style={{ float: "right", width: 160 }}
+                      style={{ float: "left", width: 140 }}
                       color="primary"
                       disabled={loading}
                       onClick={() => RegUserStrapi()}
                     >
-                      {loading ? "Loading.." : "Register on Strapi"}
+                      {loading ? "Loading.." : "Reg. on Strapi"}
                     </Button>
                     
                     {/* ------------ Button Reg by Firebase  ------------ */}
-                    <Button id="firesignup" onClick={() => {SignUpFirebase()}}
-                      style={{ float: "right", width: 160 }}
+                    <Button 
+                      id="firesignup" 
+                      style={{ float: "right", width: 140 }}
                       color="warning"
                       disabled={loading}
+                      onClick={() => {RegUserFirebase()}}
                     >
-                      Register on Firebase
+                      Reg. on Firebase
                     </Button>
 
                   </FormGroup>
