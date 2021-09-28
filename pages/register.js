@@ -12,7 +12,7 @@ import {
   Label,
   Input,
 } from "reactstrap";
-import { registerUser } from "../components/auth";
+import { registerUser } from "../components/authStrapi";
 import AppContext from "../components/context";
 
 //added by Insoo on Sep 27, 2021
@@ -33,13 +33,6 @@ const Register = () => {
   //refactored by Insoo on Sep 28, 2021
   const RegUserStrapi=() => {
     
-    // get elements: Try NOT to use DOM directly, use State instead.
-    // const regHeader = document.getElementById("header");
-    // const regUsername = document.getElementById("username");
-    // const regEmail = document.getElementById("email");
-    // const regPassword = document.getElementById("password");
-    // const regStrapi = document.getElementById("btnRegStrapi");
-
     if (DEBUG) console.log("called RegUserStrapi");
 
     //entry validation: added by Insoo on Sep 28, 2021
@@ -49,8 +42,8 @@ const Register = () => {
       setLoading(false);
       return;
     } //if 
+    //end of validation
     
-    // regStrapi.innerHTML = "Registered on Strapi"
     setLoading(true);
 
     registerUser(data.username, data.email, data.password)
@@ -116,6 +109,7 @@ const Register = () => {
                       value={data.username}
                       type="text"
                       name="username"
+                      // style modified by Insoo on Sep 28, 2021 
                       // style={{ height: 50, fontSize: "1.2em" }}
                       style={{ height: 30, fontSize: "1em" }}
                     />
@@ -151,7 +145,7 @@ const Register = () => {
                     />
                   </FormGroup>
 
-                  {/* ------------ Forgot password & Buttons ------------ */}
+                  {/* ------------ Buttons ------------ */}
                   <FormGroup>
                     {/* ------------ Button Reg by Strapi ------------ */}
                     <Button

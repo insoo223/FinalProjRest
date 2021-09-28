@@ -8,7 +8,7 @@ import AppContext from "./context";
 
 const Layout = (props) => {
   const title = "Welcome to Insoo’s Nextjs";
-  const {user} = useContext(AppContext);
+  const {user, login} = useContext(AppContext);
   return (
     <div>
       <Head>
@@ -46,7 +46,9 @@ const Layout = (props) => {
           <NavItem className="ml-auto">
             {user ? (
               <h5>{user.username}</h5>
+              // <h5>"Already Logged-in"</h5>
             ) : (
+              // <h5>"Reg"</h5>
               <Link href="/register">
                 <a className="nav-link"> Sign up</a>
               </Link>

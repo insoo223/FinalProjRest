@@ -17,6 +17,9 @@ const AppContext = React.createContext(
         addItem:()=>{},
         removeItem:()=>{},
         user:false, 
-        setUser:()=>{}
+        setUser:()=>{},
+        
+        // added by Insoo on Sep 28, 2021
+        login:false,
     });
 export default AppContext;

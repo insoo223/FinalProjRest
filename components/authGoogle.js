@@ -4,7 +4,7 @@ import firebase from 'firebase';
 
 //added by Insoo on Sep 28, 2021
 //when running in debuggin mode, set it true or false
-const DEBUG = true; 
+const DEBUG = false; 
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
@@ -28,19 +28,22 @@ else {
   firebase.app(); // if already initialized, use that one
 } //else
 
+// -------------------- LoginGoogle -------------------- 
+// Login a user whose account managed by Google
+// added by Insoo on Sep 27, 2021
 export function LoginGoogle(){
   // get elements
   const googlelogin = document.getElementById("googlelogin");
 
   console.log("google sign in clicked");
-  alert ("hi, Google auth Login-0")
+  if (DEBUG) alert ("hi, Google auth Login-0")
 
   var provider = new firebase.auth.GoogleAuthProvider();
 
   firebase.auth()
   .signInWithPopup(provider)
   .then((result) => {
-    alert ("hi, Google auth Login-1: .then((result) => {")
+    if (DEBUG) alert ("hi, Google auth Login-1: .then((result) => {")
     /** @type {firebase.auth.OAuthCredential} */
     var credential = result.credential;
 
@@ -49,65 +52,39 @@ export function LoginGoogle(){
     // The signed-in user info.
     var user = result.user;
     // ...
-    // loggedInStatus.innerText = `You are logged in using the following email: ${result.user.email}`;
-    alert (`hi, Google auth Login-1A:You are logged in using the following email: ${result.user.email}`)
-    // login.style.display = "none";
-    // signup.style.display = "none";
-    // email.style.display = "none";
-    // password.style.display = "none";
+    
+    alert (`You are successfully logged in using the following email: ${result.user.email}`)
     googlelogin.style.display = "none";
     // logout.style.display = "inline";
   }) //.then((result) => {
 
-  // login state
-  firebase.auth().onAuthStateChanged((firebaseUser) => {
-    if (firebaseUser) {
-      console.log(firebaseUser);
-      // loggedInStatus.innerText = `You are logged in using the following email: ${result.user.email}`;
-      alert (`hi, Google auth Login-2: You are logged in using the following email: ${result.user.email}`)
+} //LoginGoogle()
+// -------------------- (End) LoginGoogle --------------------   
 
-      // logout.style.display = "inline";
-      // login.style.display = "none";
-      // signup.style.display = "none";
-      // email.style.display = "none";
-      // password.style.display = "none";
-      googlelogin.style.display = "none";
-    } else {
-      console.log("User is not logged in");
-      // loggedInStatus.innerText = "You are not yet logged in";
-      // login.style.display = "inline";
-      // signup.style.display = "inline";
-      // email.style.display = "inline";
-      googlelogin.style.display = "inline";
-      // password.style.display = "inline";
-      // logout.style.display = "none";
-    }
-  }); //firebase.auth().onAuthStateChanged((firebaseUser) => {
-
-} //function LoginGoogle(){
-
+// -------------------- LogoutGoogle -------------------- 
+// Logout already logged-in user whose account managed by Google
+// added by Insoo on Sep 27, 2021
 export function LogoutGoogle(){
-  // get elements
-  // const googlelogin = document.getElementById("googlelogin");
-  // const googlelogout = document.getElementById("googlelogout");
+  // var provider = new firebase.auth.GoogleAuthProvider();
 
-  // logout
-  firebase.auth().signOut();
-  alert ("hi, Google auth Logout-0")
-
+  firebase.auth()
+    .signOut()
+    .then(() => {
+      alert ('Success to logout a user from Google account')
+    });
 } //LogoutGoogle
+// -------------------- (End) LogoutGoogle -------------------- 
 
+// -------------------- RegUserFirebase -------------------- 
 // Register a new user to Firebase (Sign Up account managed by Firebase)
+// added by Insoo on Sep 28, 2021
 export function RegUserFirebase(){
-  // get elements
-  // const googlelogin = document.getElementById("googlelogin");
-  // const googlelogout = document.getElementById("googlelogout");
-  
-  //entry validation: added by Insoo on Sep 28, 2021
+
+  //entry validation
   //For Firebase, username is not required to register.
   if (email.value == "" || password.value == "") {
     if (DEBUG) console.log("inside if condition");
-    alert ('Please, check your entry. Every field should be filled up.')
+    alert ('Please, check your entry. Email & password field should be filled up.')
     //setLoading(false);
     return;
   } //if 
@@ -122,9 +99,12 @@ export function RegUserFirebase(){
   promise.catch((e) => console.log(e.message));
   
 } //RegUserFirebase
+// -------------------- (End) RegUserFirebase -------------------- 
 
- // login
- export function LoginFirebase(){
+// -------------------- LoginFirebase -------------------- 
+// Login a user to Firebase (Registered account managed by Firebase)
+// added by Insoo on Sep 28, 2021
+export function LoginFirebase(){
   const auth = firebase.auth();
   const promise = auth.signInWithEmailAndPassword(
     email.value,
@@ -133,5 +113,23 @@ export function RegUserFirebase(){
   promise.catch((e) => console.log(e.message));
   alert ("hi, Google auth Firebase SignIn-0")
 } //LoginFirebase
+// -------------------- (End) LoginFirebase -------------------- 
+
+// -------------------- Login state display-------------------- 
+firebase.auth().onAuthStateChanged((firebaseUser) => {
+  if (firebaseUser) {
+    console.log(firebaseUser);
+    // loggedInStatus.innerText = `You are logged in using the following email: ${result.user.email}`;
+
+    googlelogin.style.display = "none";
+    googlelogout.style.display = "inline";
+  } else {
+    console.log("User is not logged in");
+    // loggedInStatus.innerText = "You are not yet logged in";
+    googlelogin.style.display = "inline";
+    googlelogout.style.display = "none";
+  }
+}); //firebase.auth().onAuthStateChanged((firebaseUser) => {
+// -------------------- (End) Login state display-------------------- 
 
 export default LoginGoogle;
