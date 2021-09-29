@@ -32,10 +32,17 @@ function CheckoutForm() {
     // // Use elements.getElement to get a reference to the mounted Element.
     const cardElement = elements.getElement(CardElement);
 
+    //added by Insoo on Sep 29, 2021
+    if ( (data.address.length == 0) || (data.city.length == 0) || (data.state.length == 0) )
+    {
+      alert('Each field should not be empty. Check again, please.');
+      return;
+    }
+
     // // Pass the Element directly to other Stripe.js methods:
     // // e.g. createToken - https://stripe.com/docs/js/tokens_sources/create_token?type=cardElement
     // get token back from stripe to process credit card
-    const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:1337";
+    const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:1338";
 
     const token = await stripe.createToken(cardElement);
     const userToken = Cookies.get("token");
@@ -52,9 +59,12 @@ function CheckoutForm() {
       }),
     });
 
-    if (!response.ok) {
+    //modified by Insoo on Sep 29, 2021
+    if (response.ok) {
       setError(response.statusText);
       console.log("SUCCESS")
+      //added by Insoo on Sep 29, 2021
+      alert('Your payment is successfuly processed w/Stripe!');
     }
 
     // OTHER stripe methods you can use depending on app
@@ -79,7 +89,7 @@ function CheckoutForm() {
       <FormGroup style={{ display: "flex" }}>
         <div style={{ flex: "0.90", marginRight: 10 }}>
           <Label>Address</Label>
-          <Input name="address" onChange={onChange} />
+          <Input id="address" name="address" onChange={onChange} />
         </div>
       </FormGroup>
       <FormGroup style={{ display: "flex" }}>

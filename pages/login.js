@@ -58,17 +58,11 @@ function Login(props) {
     setLoading(true);
     login(data.identifier, data.password)
       .then((res) => {
-        // <AppContext.Provider value={{user:true}}>
-        //   <Layout>
-            
-        //   </Layout>
-        // </AppContext.Provider>
         setLoading(false);
         // set authed User in global context to update header/app state
         appContext.setUser(res.data.user);
         appContext.isAuthenticated = true;
         appContext.login = true;
-        
         
         alert(`Success to login as ${JSON.stringify(res.data.user.email)} approved by Strapi`);
       }) //then
@@ -183,7 +177,7 @@ function Login(props) {
                     <br></br>
                     <br></br>
 
-                    {/* ------------ Button Login by Google ------------ */}
+                    {/* ------------ Button Login by Firebase ------------ */}
                     <Button 
                       id="firelogin" 
                       style={{ float: "left", width: 140 }}
