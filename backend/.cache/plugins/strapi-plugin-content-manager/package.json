@@ -2,7 +2,7 @@
   "_args": [
     [
       "strapi-plugin-content-manager@3.0.0-beta.14",
-      "D:\\timsolution\\insoo\\GitHub\\FinalProjRest\\backend"
+      "/root/FinalProjRest/backend"
     ]
   ],
   "_from": "strapi-plugin-content-manager@3.0.0-beta.14",
@@ -44,7 +44,7 @@
   ],
   "_resolved": "https://registry.npmjs.org/strapi-plugin-content-manager/-/strapi-plugin-content-manager-3.0.0-beta.14.tgz",
   "_spec": "3.0.0-beta.14",
-  "_where": "D:\\timsolution\\insoo\\GitHub\\FinalProjRest\\backend",
+  "_where": "/root/FinalProjRest/backend",
   "author": {
     "name": "Strapi team",
     "email": "hi@strapi.io",
