@@ -2,7 +2,7 @@
   "_args": [
     [
       "strapi-plugin-settings-manager@3.0.0-beta.14",
-      "/root/FinalProjRest/backend"
+      "D:\\timsolution\\insoo\\GitHub\\FinalProjRest\\backend"
     ]
   ],
   "_from": "strapi-plugin-settings-manager@3.0.0-beta.14",
@@ -26,7 +26,7 @@
   ],
   "_resolved": "https://registry.npmjs.org/strapi-plugin-settings-manager/-/strapi-plugin-settings-manager-3.0.0-beta.14.tgz",
   "_spec": "3.0.0-beta.14",
-  "_where": "/root/FinalProjRest/backend",
+  "_where": "D:\\timsolution\\insoo\\GitHub\\FinalProjRest\\backend",
   "author": {
     "name": "Strapi team",
     "email": "hi@strapi.io",
