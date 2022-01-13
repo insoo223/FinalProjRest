@@ -18,6 +18,10 @@ function Home() {
         <ApolloProvider client={client}>
           <div className="search">
               <h2> Local Restaurants</h2>
+              <small> Native run on TIMsvr </small>
+              <small> norok IP fwd: </small>
+              <small> Home: http://05c8-211-104-198-136.ngrok.io -> http://localhost:3000 </small>
+              <small> Strapi: http://71f1-211-104-198-136.ngrok.io -> http://localhost:1337  </small>
                 <InputGroup >
                 <InputGroupAddon addonType="append"> Search </InputGroupAddon>
                 <Input

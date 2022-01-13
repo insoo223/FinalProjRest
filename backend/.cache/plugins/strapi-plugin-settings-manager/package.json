@@ -2,7 +2,11 @@
   "_args": [
     [
       "strapi-plugin-settings-manager@3.0.0-beta.14",
+<<<<<<< HEAD
       "/home/github/FinalProjRest/backend"
+=======
+      "/root/FinalProjRest/backend"
+>>>>>>> a179896ea20d07ead2f521455b5e0426df97535b
     ]
   ],
   "_from": "strapi-plugin-settings-manager@3.0.0-beta.14",
@@ -26,7 +30,11 @@
   ],
   "_resolved": "https://registry.npmjs.org/strapi-plugin-settings-manager/-/strapi-plugin-settings-manager-3.0.0-beta.14.tgz",
   "_spec": "3.0.0-beta.14",
+<<<<<<< HEAD
   "_where": "/home/github/FinalProjRest/backend",
+=======
+  "_where": "/root/FinalProjRest/backend",
+>>>>>>> a179896ea20d07ead2f521455b5e0426df97535b
   "author": {
     "name": "Strapi team",
     "email": "hi@strapi.io",
