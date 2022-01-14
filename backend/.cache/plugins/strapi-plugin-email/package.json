@@ -2,7 +2,7 @@
   "_args": [
     [
       "strapi-plugin-email@3.0.0-beta.14",
-      "/home/github/FinalProjRest/backend"
+      "/github/FinalProjRest/backend"
     ]
   ],
   "_from": "strapi-plugin-email@3.0.0-beta.14",
@@ -44,7 +44,7 @@
   ],
   "_resolved": "https://registry.npmjs.org/strapi-plugin-email/-/strapi-plugin-email-3.0.0-beta.14.tgz",
   "_spec": "3.0.0-beta.14",
-  "_where": "/home/github/FinalProjRest/backend",
+  "_where": "/github/FinalProjRest/backend",
   "author": {
     "name": "Strapi team",
     "email": "hi@strapi.io",
