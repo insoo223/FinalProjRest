@@ -12,13 +12,19 @@
   },
   "devDependencies": {
     "babel-eslint": "^10.0.0",
-    "eslint": "^6.0.0",
-    "eslint-config-airbnb": "^17.1.0",
+    "bookshelf": "^0.15.2",
+    "bootstrap": "^4.5.2",
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb": "^17.1.1",
     "eslint-plugin-import": "^2.18.0",
-    "eslint-plugin-react": "^7.14.0"
+    "eslint-plugin-jsx-a11y": "^6.7.1",
+    "eslint-plugin-react": "^7.14.0",
+    "graphql": "^0.13.2",
+    "graphql-type-datetime": "^0.2.4",
+    "jquery": "^1.9.1",
+    "knex": "^0.13.0"
   },
   "dependencies": {
-    "knex": "^0.21.6",
     "lodash": "^4.17.5",
     "sqlite3": "^5.0.0",
     "strapi": "3.0.0-beta.14",
