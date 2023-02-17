@@ -1,16 +1,16 @@
 {
-  "_args": [
-    [
-      "strapi-plugin-content-type-builder@3.0.0-beta.14",
-      "/github/FinalProjRest/backend"
-    ]
-  ],
   "_from": "strapi-plugin-content-type-builder@3.0.0-beta.14",
   "_id": "strapi-plugin-content-type-builder@3.0.0-beta.14",
   "_inBundle": false,
   "_integrity": "sha512-HpUOji3/2RGFNqe6GQgjkZos0isfCU+4zPEYE7kWZrFzJxD20i9Xa8Ols1lH8YMKHX5/OzuSADgZOv37ZqaYcg==",
   "_location": "/strapi-plugin-content-type-builder",
-  "_phantomChildren": {},
+  "_phantomChildren": {
+    "@babel/runtime": "7.20.13",
+    "@types/react-redux": "7.1.25",
+    "hoist-non-react-statics": "3.3.2",
+    "loose-envify": "1.4.0",
+    "prop-types": "15.8.1"
+  },
   "_requested": {
     "type": "version",
     "registry": true,
@@ -25,7 +25,8 @@
     "/"
   ],
   "_resolved": "https://registry.npmjs.org/strapi-plugin-content-type-builder/-/strapi-plugin-content-type-builder-3.0.0-beta.14.tgz",
-  "_spec": "3.0.0-beta.14",
+  "_shasum": "c2379c3e7a82a98a3160ec79ba528f3d317ea753",
+  "_spec": "strapi-plugin-content-type-builder@3.0.0-beta.14",
   "_where": "/github/FinalProjRest/backend",
   "author": {
     "name": "Strapi team",
@@ -35,6 +36,7 @@
   "bugs": {
     "url": "https://github.com/strapi/strapi/issues"
   },
+  "bundleDependencies": false,
   "dependencies": {
     "classnames": "^2.2.6",
     "fs-extra": "^7.0.0",
@@ -57,6 +59,7 @@
     "strapi-generate-api": "3.0.0-beta.14",
     "strapi-helper-plugin": "3.0.0-beta.14"
   },
+  "deprecated": false,
   "description": "Strapi plugin to create content type (API).",
   "engines": {
     "node": ">=10.0.0",

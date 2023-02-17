@@ -1,16 +1,19 @@
 {
-  "_args": [
-    [
-      "strapi-plugin-settings-manager@3.0.0-beta.14",
-      "/github/FinalProjRest/backend"
-    ]
-  ],
   "_from": "strapi-plugin-settings-manager@3.0.0-beta.14",
   "_id": "strapi-plugin-settings-manager@3.0.0-beta.14",
   "_inBundle": false,
   "_integrity": "sha512-w2bgkyKex29rsUUyH4K8OpuyUrSoLjoUetJHvO8SdMi8HT1ZumtOWciclzj0D9JMTkwyxotn6eMmc7+WZS42vA==",
   "_location": "/strapi-plugin-settings-manager",
-  "_phantomChildren": {},
+  "_phantomChildren": {
+    "@babel/runtime": "7.20.13",
+    "@types/react-redux": "7.1.25",
+    "glob": "7.2.3",
+    "hoist-non-react-statics": "3.3.2",
+    "interpret": "1.4.0",
+    "loose-envify": "1.4.0",
+    "prop-types": "15.8.1",
+    "rechoir": "0.6.2"
+  },
   "_requested": {
     "type": "version",
     "registry": true,
@@ -25,7 +28,8 @@
     "/"
   ],
   "_resolved": "https://registry.npmjs.org/strapi-plugin-settings-manager/-/strapi-plugin-settings-manager-3.0.0-beta.14.tgz",
-  "_spec": "3.0.0-beta.14",
+  "_shasum": "d1251cc871365034ce4582257bae5240b4a871bb",
+  "_spec": "strapi-plugin-settings-manager@3.0.0-beta.14",
   "_where": "/github/FinalProjRest/backend",
   "author": {
     "name": "Strapi team",
@@ -35,6 +39,7 @@
   "bugs": {
     "url": "https://github.com/strapi/strapi/issues"
   },
+  "bundleDependencies": false,
   "dependencies": {
     "classnames": "^2.2.6",
     "immutable": "^3.8.2",
@@ -54,6 +59,7 @@
     "shelljs": "^0.7.8",
     "strapi-helper-plugin": "3.0.0-beta.14"
   },
+  "deprecated": false,
   "description": "Strapi plugin to manage settings.",
   "engines": {
     "node": ">=10.0.0",

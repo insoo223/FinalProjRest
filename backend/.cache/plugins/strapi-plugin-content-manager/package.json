@@ -1,33 +1,15 @@
 {
-  "_args": [
-    [
-      "strapi-plugin-content-manager@3.0.0-beta.14",
-      "/github/FinalProjRest/backend"
-    ]
-  ],
   "_from": "strapi-plugin-content-manager@3.0.0-beta.14",
   "_id": "strapi-plugin-content-manager@3.0.0-beta.14",
   "_inBundle": false,
   "_integrity": "sha512-INGkJvifT0pVC9Pp25CIXy8VChZX60zwoDZ0Ac9mHm0TyoiuNi9ZMaFR3KFxVbkmwJfsGAQYFqTQz1dVECFVbw==",
   "_location": "/strapi-plugin-content-manager",
   "_phantomChildren": {
-    "@babel/polyfill": "7.11.5",
-    "@types/bluebird": "3.5.32",
-    "bluebird": "3.7.2",
-    "commander": "2.20.3",
-    "glob": "7.1.6",
-    "inherits": "2.0.4",
-    "interpret": "1.4.0",
-    "joi-json": "2.1.0",
-    "liftoff": "3.1.0",
-    "mkdirp": "0.5.5",
-    "ms": "2.1.2",
-    "os-homedir": "1.0.2",
-    "pino": "4.17.6",
-    "pluralize": "7.0.0",
-    "rechoir": "0.6.2",
-    "uuid": "3.4.0",
-    "v8flags": "3.2.0"
+    "@babel/runtime": "7.20.13",
+    "@types/react-redux": "7.1.25",
+    "hoist-non-react-statics": "3.3.2",
+    "loose-envify": "1.4.0",
+    "prop-types": "15.8.1"
   },
   "_requested": {
     "type": "version",
@@ -43,7 +25,8 @@
     "/"
   ],
   "_resolved": "https://registry.npmjs.org/strapi-plugin-content-manager/-/strapi-plugin-content-manager-3.0.0-beta.14.tgz",
-  "_spec": "3.0.0-beta.14",
+  "_shasum": "48f5ddb23ef7518cbe49c093a8fa53f0dae5be19",
+  "_spec": "strapi-plugin-content-manager@3.0.0-beta.14",
   "_where": "/github/FinalProjRest/backend",
   "author": {
     "name": "Strapi team",
@@ -53,6 +36,7 @@
   "bugs": {
     "url": "https://github.com/strapi/strapi/issues"
   },
+  "bundleDependencies": false,
   "dependencies": {
     "classnames": "^2.2.6",
     "codemirror": "^5.46.0",
@@ -78,6 +62,7 @@
     "strapi-utils": "3.0.0-beta.14",
     "styled-components": "^4.2.0"
   },
+  "deprecated": false,
   "description": "A powerful UI to easily manage your data.",
   "engines": {
     "node": ">=10.0.0",
